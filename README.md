@@ -1,10 +1,10 @@
 # task-manager
 A Simple  project to help manage projects and tasks
 
-Features:
-User Management 
-Projects Management
-Clients Management
-Tasks Management
+Features: <br>
+User Management<br>
+Projects Management<br>
+Clients Management<br>
+Tasks Management<br>
 
-Created using Laravel and AdminLTE
+Created using <a href="https://laravel.com">Laravel</a> and <a href="https://github.com/jeroennoten/Laravel-AdminLTE">AdminLTE</a>
