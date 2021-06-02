@@ -26,9 +26,9 @@ class UserController extends Controller
              $btnEdit = '<a  href="'.url('admin/users/edit', ['id' => $user->id]) . '" class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
                 <i class="fa fa-lg fa-fw fa-pen"></i>
             </a>';
-            $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
+            $btnDelete = '<a class="btn btn-xs btn-default text-danger mx-1 shadow" href="'.url('admin/users/delete', ['id' => $user->id]) . '" title="Delete">
                   <i class="fa fa-lg fa-fw fa-trash"></i>
-              </button>';
+              </a>';
            $btnDetails = '<a  href="'.url('admin/users/show', ['id' => $user->id]) . '" class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
                    <i class="fa fa-lg fa-fw fa-eye"></i>
                </a>';
@@ -96,7 +96,7 @@ class UserController extends Controller
      }
 
         /**
-         * Store a newly created resource in storage.
+         * Add User
          *
          */
         public function store(Request $request)
@@ -111,7 +111,14 @@ class UserController extends Controller
             User::create($request->all());
 
             return redirect()->route('users')
-                ->with('success', 'User created successfully.');
+                ->with('status', 'User created successfully.');
         }
+   
+       public function destroy(User $user)
+        {
+            $user->delete();
 
+            return redirect()->route('users')
+                ->with('status', 'User deleted successfully');
+        }
 }
